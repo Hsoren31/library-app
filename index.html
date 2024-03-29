@@ -13,7 +13,7 @@
     </div>
 
     <button id="new_book">NEW BOOK</button>
-    <div id="pop_up_form" class="hidden_form">
+    <dialog>
         <form action="#" method="post" id="add_book_form">
             <div>
                 <label for="title">Title:</label>
@@ -40,8 +40,8 @@
                     name="have_not_read" value="Have not Read">
                 </div>
             </div>
-            <button id="submit_book" type="submit">Add Book to Library</button>
+            <button id="submit_book" class='close_form' type="submit">Add Book to Library</button>
         </form>
-    </div>
+    </dialog>
 </body>
 </html>
