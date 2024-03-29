@@ -13,3 +13,17 @@ showForm.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
     dialog.close();
 });
+
+//library container
+const library = [];
+
+function Book(title, author, pages, readStatus){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+};
+
+function addBookToLibrary(book){
+    library.push(book);
+}
