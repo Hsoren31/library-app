@@ -2,17 +2,18 @@ const libraryContainer = document.getElementById('library_container');
 const newBookButton = document.getElementById('new_book');
 const dialog = document.querySelector('dialog');
 const showForm = document.getElementById('new_book');
-const submitButton = document.getElementById('submit_book');
+const closeForm = document.getElementById('close_form');
+const submitForm = document.getElementById('add_book_form');
 
-//Display and close form
+//Display form to add new book
 showForm.addEventListener('click', () => {
     dialog.showModal();
 });
 
-submitButton.addEventListener('click', () => {
+closeForm.addEventListener('click', (e) => {
+    e.preventDefault();
     dialog.close();
-});
-
+})
 //library container
 const library = [];
 
@@ -65,3 +66,20 @@ function displayLibrary(library){
 // addBookToLibrary(book1);
 // console.log(library);
 // displayLibrary(library);
+
+submitForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+    let readStatus = document.querySelector('input[name = "read_status"]:checked').value;
+
+    let newBook = new Book(title, author, pages, readStatus);
+    addBookToLibrary(newBook);
+    console.log(library);
+    libraryContainer.innerText = '';
+    displayLibrary(library);
+});
+
+console.log(library);
