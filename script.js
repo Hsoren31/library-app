@@ -5,7 +5,7 @@ const showForm = document.getElementById('new_book');
 const closeForm = document.getElementById('close_form');
 const submitForm = document.getElementById('add_book_form');
 
-//Display form to add new book
+//Display form and close form
 showForm.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -13,10 +13,29 @@ showForm.addEventListener('click', () => {
 closeForm.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.close();
-})
-//library container
-const library = [];
+});
 
+//library container
+let library = [
+    {title: 'harry',
+     author: 'potter',
+     pages: 23,
+     readStatus: 'Have Read'},
+    {title: 'harry',
+    author: 'potter',
+    pages: 32,
+    readStatus: 'Have Not Read'},
+    {title: 'harry',
+    author: 'potter',
+    pages: 43,
+    readStatus: 'Have Read'},
+    {title: 'harry',
+    author: 'potter',
+    pages: 56,
+    readStatus: 'Have Not Read'}
+];
+
+//New book constructor
 function Book(title, author, pages, readStatus){
     this.title = title;
     this.author = author;
@@ -28,44 +47,25 @@ function addBookToLibrary(book){
     library.push(book);
 }
 
-//make book cards
-function makeCard(book){
-    const bookCard = document.createElement('div');
-    bookCard.className = 'book_card';
-    libraryContainer.append(bookCard);
-
-    const bookTitle = document.createElement('h2');
-    bookTitle.className = 'book_title';
-    bookTitle.innerText = book.title;
-    bookCard.append(bookTitle);
-
-    const bookAuthor = document.createElement('p');
-    bookAuthor.className = 'book_author';
-    bookAuthor.innerText = book.author;
-    bookCard.append(bookAuthor);
-
-    const bookPages = document.createElement('p');
-    bookPages.className = 'book_pages';
-    bookPages.innerText = book.pages;
-    bookCard.append(bookPages);
-
-    const bookReadStatus = document.createElement('p');
-    bookReadStatus.className = 'book_status';
-    bookReadStatus.innerText = book.readStatus;
-    bookCard.append(bookReadStatus);
-}
 //display library container
 function displayLibrary(library){
-    for(let i = 0; i < library.length; i++){
-        makeCard(library[i]);
-    }
+    library.forEach((book, i) => {
+        let currentLibrary = libraryContainer.innerHTML;
+        let displayBook = (
+            `<div class='book_card'>
+                <h2>${book.title}</h2>
+                <p>${book.author}</p>
+                <p>${book.pages}</p>
+                <p>${book.readStatus}</p>
+                <button class='delete_book' onclick='removeBook(${i})'>Delete Book</button>
+            </div>`
+        )
+        let amendedLibrary = currentLibrary + displayBook;
+        libraryContainer.innerHTML = amendedLibrary;
+    })
 };
 
-// const book1 = new Book ('book', 'author', 100, 'have read');
-// console.log(book1);
-// addBookToLibrary(book1);
-// console.log(library);
-// displayLibrary(library);
+displayLibrary(library);
 
 submitForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -77,9 +77,16 @@ submitForm.addEventListener('submit', (e) => {
 
     let newBook = new Book(title, author, pages, readStatus);
     addBookToLibrary(newBook);
-    console.log(library);
     libraryContainer.innerText = '';
     displayLibrary(library);
 });
 
 console.log(library);
+//Delete Book
+function removeBook(index){
+    library = library.filter((book, i) => {
+        return i === index ? false : true ;
+    })
+    libraryContainer.innerHTML = '';
+    displayLibrary(library);
+};
