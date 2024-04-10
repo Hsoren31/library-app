@@ -55,7 +55,7 @@ function displayLibrary(library){
             `<div class='book_card'>
                 <h2>${book.title}</h2>
                 <p>${book.author}</p>
-                <p>${book.pages}</p>
+                <p>${book.pages} pages</p>
                 <p>${book.readStatus}</p>
                 <button class='delete_book' onclick='removeBook(${i})'>Delete Book</button>
             </div>`

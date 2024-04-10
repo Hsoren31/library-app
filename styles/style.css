@@ -1,3 +1,25 @@
-.hidden_form {
-    display: none;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#library_container {
+    padding: 1em;
+    overflow: auto;
+    border: red solid 1px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 10px;
+}
+
+.book_card {
+    border: purple solid 1px;
+    text-align: center;
+    padding: 1em;
 }

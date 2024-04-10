@@ -8,41 +8,46 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="library_container">
-        
-    </div>
+    <header>
+        <h1>Library App</h1>
+    </header>
+    <main>
+        <div id="library_container">
+            
+        </div>
 
-    <button id="new_book">NEW BOOK</button>
-    <dialog>
-        <form action="#" method="post" id="add_book_form">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div>
-                <label for="author">Author:</label>
-                <input type="text" name="author" id="author">
-            </div>
-            <div>
-                <label for="pages">Pages:</label>
-                <input type="number" name="pages" id="pages">
-            </div>
-            <div>
-                <p>Have you Read?:</p>
+        <button id="new_book">NEW BOOK</button>
+        <dialog>
+            <form action="#" method="post" id="add_book_form">
                 <div>
-                    <label for="have_read">Yes</label>
-                    <input type="radio" id='have_read' 
-                    name="read_status" value="Have Read">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
                 </div>
                 <div>
-                    <label for="have_not_read">No</label>
-                    <input type="radio" id="have_not_read"
-                    name="read_status" value="Have not Read">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
                 </div>
-            </div>
-            <button id="submit_book" type="submit">Add Book to Library</button>
-            <button id="close_form" formnovalidate>Close</button>
-        </form>
-    </dialog>
+                <div>
+                    <label for="pages">Pages:</label>
+                    <input type="number" name="pages" id="pages">
+                </div>
+                <div>
+                    <p>Have you Read?:</p>
+                    <div>
+                        <label for="have_read">Yes</label>
+                        <input type="radio" id='have_read' 
+                        name="read_status" value="Have Read">
+                    </div>
+                    <div>
+                        <label for="have_not_read">No</label>
+                        <input type="radio" id="have_not_read"
+                        name="read_status" value="Have not Read">
+                    </div>
+                </div>
+                <button id="submit_book" type="submit">Add Book to Library</button>
+                <button id="close_form" formnovalidate>Close</button>
+            </form>
+        </dialog>
+    </main>
 </body>
 </html>
