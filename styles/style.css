@@ -4,22 +4,88 @@
     padding: 0;
 }
 
+body {
+    font-family: "Merriweather", serif;
+    min-height: 1dvh;
+    letter-spacing: 0.2ch;
+    background-color: #BB885E;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #CB6B4D;
+    padding: 1em;
+    border-bottom: 5px solid #173A2B;
+}
+
 h1 {
     text-align: center;
+    color: #FBE8D8;
 }
 
 #library_container {
+    background-color: #BB885E;
     padding: 1em;
     overflow: auto;
-    border: red solid 1px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(125px, 1fr));
     gap: 10px;
 }
 
 .book_card {
-    border: purple solid 1px;
+    background-color: #E5C7B1;
+    border: #173A2B solid 1px;
     text-align: center;
+    line-height: 4ch;
+    color: #173A2B;
     padding: 1em;
+    font-size: 18px;
+}
+
+.book_card button {
+    background-color: #5A7969;
+    color:#FBE8D8;
+    font: inherit;
+    border-radius: 0.25em;
+    border: none;
+    padding: 0 0.5em;
+}
+
+#new_book {
+    background-color: #CB6B4D;
+    color:#FBE8D8;
+    font: inherit;
+    font-size: 26px;
+    border: none;
+    text-align: center;
+    padding: 1em 3em;
+    
+    display: block;
+    margin: auto;
+}
+
+dialog {
+    font-size: 24px;
+    margin: auto;
+    padding: 0.5em;
+    border: 0;
+    box-shadow: 0 0 1em rgb(0 0 0/ .4);
+    border-radius: 0.1em;
+    min-width: 25ch;
+    text-align: center;
+}
+
+dialog button {
+    font-size: 18px;
+    padding: 0.5em;
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0/ .3);
+}
+
+input {
+    max-height: 15ch;
 }
