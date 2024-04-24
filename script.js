@@ -58,6 +58,7 @@ function displayLibrary(library){
                 <p>${book.pages} pages</p>
                 <p>${book.readStatus}</p>
                 <button class='delete_book' onclick='removeBook(${i})'>Delete Book</button>
+                <button class='toggle_status' onclick='toggleStatus(${i})'>Change Status</button>
             </div>`
         )
         let amendedLibrary = currentLibrary + displayBook;
@@ -89,4 +90,18 @@ function removeBook(index){
     })
     libraryContainer.innerHTML = '';
     displayLibrary(library);
+};
+
+//Toggle book read status
+function toggleStatus(index){
+    let bookObject = library[index].readStatus;
+    if (bookObject === 'Have Read'){
+        library[index].readStatus = 'Have not Read';
+        libraryContainer.innerHTML = '';
+        displayLibrary(library);    
+    } else {
+        library[index].readStatus = 'Have Read';
+        libraryContainer.innerHTML = '';
+        displayLibrary(library);
+    }
 };
